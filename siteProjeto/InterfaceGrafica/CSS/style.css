@@ -1,0 +1,371 @@
+/* ==========================================================================
+   1. VARIÁVEIS DE CORES E CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+:root {
+    --primary-color: #2563eb;       /* Azul para botões principais */
+    --primary-hover: #1d4ed8;       
+    --header-bg: #10b981;           /* Verde do Cabeçalho (Baseado no Mockup) */
+    --header-hover: #059669;        /* Verde mais escuro para o hover do menu */
+    --bg-color: #f8fafc;            /* Fundo geral da página */
+    --card-bg: #ffffff;             /* Fundo dos painéis e cards */
+    --text-main: #334155;           /* Cor do texto principal */
+    --text-muted: #64748b;          /* Cor de textos secundários (datas, legendas) */
+    --border-color: #e2e8f0;        /* Cor das linhas e bordas */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* ==========================================================================
+   2. CABEÇALHO VERDE E NAVEGAÇÃO
+   ========================================================================== */
+header, .main-header {
+    background-color: var(--header-bg);
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Borda suave escura */
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo, header h1 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+nav, .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav ul, .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+/* Links do menu no cabeçalho verde */
+nav a, nav strong {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+/* Efeito ao passar o mouse e página atual (Verde mais escuro) */
+nav a:hover, nav strong, .active {
+    background-color: var(--header-hover);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   3. TELA DE LOGIN (index.html)
+   ========================================================================== */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-container {
+    background: var(--card-bg);
+    padding: 3rem;
+    border: 1px solid var(--border-color);
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Ajuste específico para o Título dentro da caixa de Login branca */
+.login-container header {
+    background: transparent;
+    padding: 0 0 1.5rem 0;
+    box-shadow: none;
+    border-bottom: none;
+}
+
+.login-container header h1 {
+    color: var(--header-bg); /* Título do painel de login em verde */
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.google-login-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: white;
+    transition: background-color 0.2s;
+}
+
+.google-login-circle:hover {
+    background-color: var(--bg-color);
+}
+/* ==========================================================================
+   Ajustes específicos para Inputs e Links no Painel de Login/Cadastro
+   ========================================================================== */
+
+/* Garante que os inputs herdem o design padrão mesmo sem a tag <label> */
+.login-container .form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #ffffff;
+    transition: border-color 0.2s ease;
+}
+
+/* Efeito de foco azul nos inputs para melhorar a experiência do usuário */
+.login-container .form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+/* Link para alternar entre as telas de login e cadastro */
+.login-link {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.login-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   4. PERFORMANCE (Gráficos e Layouts)
+   ========================================================================== */
+.performance-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.panel-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-radius: 8px;
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Gráfico de Conteúdos */
+.pie-conteudos {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #4285f4 0% 55%, 
+        #a463f2 55% 80%, 
+        #fca311 80% 95%, 
+        #fde047 95% 100%
+    );
+    margin: 1rem 0;
+}
+
+/* Gráfico de Acertos/Erros */
+.pie-acertos {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #4ade80 0% 68.8%, 
+        #c084fc 68.8% 100%
+    );
+    margin: 1rem 0;
+}
+
+/* ==========================================================================
+   5. QUESTÕES E SIMULADOS
+   ========================================================================== */
+.list-item-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-radius: 8px;
+}
+
+.list-item-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.list-item-body {
+    padding: 1rem 0;
+}
+
+.options label {
+    display: block;
+    padding: 0.5rem 0;
+    cursor: pointer;
+}
+
+.options input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+.card-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    width: max-content;
+}
+
+.tag-enem { background-color: #fef3c7; color: #d97706; }
+.tag-unb { background-color: #e0f2fe; color: #0369a1; }
+.tag-fuvest { background-color: #fce7f3; color: #be185d; }
+
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+/* ==========================================================================
+   6. MURAL DE NOTÍCIAS
+   ========================================================================== */
+.news-wall {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.news-card {
+    background: var(--card-bg);
+    border-left: 4px solid var(--header-bg); /* O detalhe lateral puxa o verde do cabeçalho */
+    padding: 1.5rem;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    margin-bottom: 1.5rem;
+}
+
+.section-title h2 {
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.text-primary {
+    color: var(--primary-color);
+}
