@@ -1,0 +1,1 @@
+https://canva.link/upmbluyny4u93mz como quero que fique, viajei ent nao fiz o estilo em css, só do index
