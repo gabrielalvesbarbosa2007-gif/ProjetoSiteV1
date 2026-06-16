@@ -13,16 +13,23 @@
             <h1>Painel Estudante</h1>
         </header>
         
-        <form action="index.html" method="GET" style="width: 100%;" id="cadastro-form">
+        <form style="width: 100%;" id="cadastro-form">
             <div class="form-group">
+                <label for="nome">Nome Completo:</label>
                 <input type="text" id="nome" placeholder="Seu nome" required>
             </div>
             
             <div class="form-group">
+                <label for="email">E-mail de Estudante:</label>
                 <input type="email" id="email" placeholder="Seu e-mail" required>
             </div>
+          <div class="form-group">
+        <label for="data_nascimento">Data de Nascimento:</label>
+        <input type="date" id="data_nascimento" required>
+    </div>
             
             <div class="form-group">
+                <label for="senha">Senha de Acesso:</label>
                 <input type="password" id="senha" placeholder="Crie uma senha" required>
             </div>
             
@@ -31,6 +38,6 @@
 
         <a href="index.html" class="login-link">Já tem uma conta? Faça login</a>
     </div>
-
+    <script src="../js/main.js"></script>
 </body>
 </html>
