@@ -1,55 +1,68 @@
 /* ==========================================================================
-   1. VARIÁVEIS DE CORES E CONFIGURAÇÕES GERAIS
+   1. VARIÁVEIS DE CORES (Otimizadas para Contraste WCAG AA e Identidade Verde)
    ========================================================================== */
 :root {
-    --primary-color: #2563eb;       /* Azul para botões principais */
-    --primary-hover: #1d4ed8;       
-    --header-bg: #10b981;           /* Verde do Cabeçalho (Baseado no Mockup) */
-    --header-hover: #059669;        /* Verde mais escuro para o hover do menu */
-    --bg-color: #f8fafc;            /* Fundo geral da página */
-    --card-bg: #ffffff;             /* Fundo dos painéis e cards */
-    --text-main: #334155;           /* Cor do texto principal */
-    --text-muted: #64748b;          /* Cor de textos secundários (datas, legendas) */
-    --border-color: #e2e8f0;        /* Cor das linhas e bordas */
+    /* Identidade Principal: Verde com alto contraste para texto branco */
+    --primary-color: #047857;       /* Verde Esmeralda Escuro (Contraste 4.5+:1) */
+    --primary-hover: #065f46;       /* Tom mais escuro para estados de foco/hover */
+    --primary-light: #e6f4ea;       /* Fundo suave para alertas/tags */
+    
+    /* Cores de Ação Secundária e Suporte */
+    --secondary-color: #1e40af;     /* Azul escuro para ações alternativas (Login Google) */
+    --secondary-hover: #1e3a8a;
+    
+    /* Estados de Feedback (Heurística #5 e #9) */
+    --success-color: #16a34a;       /* Verde de confirmação */
+    --error-color: #dc2626;         /* Vermelho de erro/alerta */
+    --error-light: #fef2f2;
+    
+    /* Superfícies e Textos */
+    --bg-color: #f8fafc;            /* Cinza azulado muito claro (descanso visual) */
+    --card-bg: #ffffff;             
+    --text-main: #0f172a;           /* Azul ardósia quase preto (máxima legibilidade) */
+    --text-muted: #475569;          /* Cinza escuro legível para textos secundários */
+    --border-color: #cbd5e1;        /* Bordas mais nítidas para acessibilidade visual */
 }
 
+/* ==========================================================================
+   2. CONFIGURAÇÕES GERAIS E RESET
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
     background-color: var(--bg-color);
     color: var(--text-main);
-    line-height: 1.6;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 2rem 1rem;
+}
+
+/* Links globais focam em acessibilidade */
+a:focus-visible, button:focus-visible, input:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
 }
 
 /* ==========================================================================
-   2. CABEÇALHO VERDE E NAVEGAÇÃO
+   3. CABEÇALHO E NAVEGAÇÃO (Consistência e Padrões)
    ========================================================================== */
-header, .main-header {
-    background-color: var(--header-bg);
-    padding: 1rem 2rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Borda suave escura */
-    color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.main-header {
+    background-color: var(--primary-color);
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
-.logo, header h1 {
-    color: #ffffff;
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
-nav, .nav-container {
+.nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,256 +70,191 @@ nav, .nav-container {
     margin: 0 auto;
 }
 
-nav ul, .nav-links {
+.logo {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.nav-links {
     display: flex;
     list-style: none;
-    gap: 1.5rem;
+    gap: 1rem;
+    align-items: center;
 }
 
-/* Links do menu no cabeçalho verde */
-nav a, nav strong {
+.nav-links a, .nav-links strong {
     text-decoration: none;
     color: #ffffff;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.75rem;
     border-radius: 6px;
-    transition: all 0.2s ease;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background-color 0.15s ease;
 }
 
-/* Efeito ao passar o mouse e página atual (Verde mais escuro) */
-nav a:hover, nav strong, .active {
-    background-color: var(--header-hover);
-    color: #ffffff;
-    font-weight: 600;
+.nav-links a:hover {
+    background-color: var(--primary-hover);
+}
+
+.nav-links .active, .nav-links strong {
+    background-color: var(--primary-hover);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
 }
 
 /* ==========================================================================
-   3. TELA DE LOGIN (index.html)
+   4. COMPONENTES DE FORMULÁRIO (Prevenção de Erros)
    ========================================================================== */
 .login-page {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding: 1rem;
 }
 
 .login-container {
     background: var(--card-bg);
-    padding: 3rem;
+    padding: 2.5rem;
     border: 1px solid var(--border-color);
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-/* Ajuste específico para o Título dentro da caixa de Login branca */
-.login-container header {
-    background: transparent;
-    padding: 0 0 1.5rem 0;
-    box-shadow: none;
-    border-bottom: none;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
 }
 
 .login-container header h1 {
-    color: var(--header-bg); /* Título do painel de login em verde */
+    color: var(--primary-color);
+    font-size: 1.75rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
 }
 
 .form-group {
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-main);
 }
 
 .form-group input {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid var(--border-color);
-    border-radius: 4px;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: var(--text-main);
+    background-color: #ffffff;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(4, 120, 87, 0.15);
+}
+
+/* Elementos de Botão Interativos */
 .btn {
     width: 100%;
-    padding: 0.75rem;
+    padding: 0.75rem 1rem;
     background-color: var(--primary-color);
-    color: white;
+    color: #ffffff;
     border: none;
-    border-radius: 4px;
-    font-weight: bold;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    transition: background-color 0.15s ease;
 }
 
-.btn:hover {
+.btn:hover:not(:disabled) {
     background-color: var(--primary-hover);
 }
 
+/* Heurística #1: Visibilidade do Estado do Sistema (Botão travado pelo JS) */
+.btn:disabled {
+    background-color: var(--border-color);
+    color: var(--text-muted);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
 .google-login-circle {
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    border: 2px solid var(--border-color);
-    margin-top: 1rem;
+    border: 1px solid var(--border-color);
+    margin: 1rem auto 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    background-color: white;
-    transition: background-color 0.2s;
+    background-color: #ffffff;
+    transition: background-color 0.15s ease;
 }
 
 .google-login-circle:hover {
     background-color: var(--bg-color);
 }
-/* ==========================================================================
-   Ajustes específicos para Inputs e Links no Painel de Login/Cadastro
-   ========================================================================== */
 
-/* Garante que os inputs herdem o design padrão mesmo sem a tag <label> */
-.login-container .form-group input {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    font-size: 1rem;
-    background-color: #ffffff;
-    transition: border-color 0.2s ease;
-}
-
-/* Efeito de foco azul nos inputs para melhorar a experiência do usuário */
-.login-container .form-group input:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
-}
-
-/* Link para alternar entre as telas de login e cadastro */
 .login-link {
+    display: block;
+    text-align: center;
     margin-top: 1.5rem;
     font-size: 0.9rem;
-    color: var(--text-muted);
+    color: var(--secondary-color);
     text-decoration: none;
-    transition: color 0.2s ease;
+    font-weight: 500;
 }
 
 .login-link:hover {
-    color: var(--primary-color);
     text-decoration: underline;
+    color: var(--secondary-hover);
 }
 
 /* ==========================================================================
-   4. PERFORMANCE (Gráficos e Layouts)
+   5. INTERFACE DO ALUNO (Cards, Listas e Gráficos)
    ========================================================================== */
-.performance-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 2rem;
+.section-title {
+    margin-bottom: 2rem;
+}
+
+.section-title h2 {
+    font-size: 1.75rem;
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+.section-title p {
+    color: var(--text-muted);
+    font-size: 1rem;
 }
 
 .panel-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    padding: 2rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    border-radius: 8px;
-}
-
-.chart-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Gráfico de Conteúdos */
-.pie-conteudos {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    background: conic-gradient(
-        #4285f4 0% 55%, 
-        #a463f2 55% 80%, 
-        #fca311 80% 95%, 
-        #fde047 95% 100%
-    );
-    margin: 1rem 0;
-}
-
-/* Gráfico de Acertos/Erros */
-.pie-acertos {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    background: conic-gradient(
-        #4ade80 0% 68.8%, 
-        #c084fc 68.8% 100%
-    );
-    margin: 1rem 0;
-}
-
-/* ==========================================================================
-   5. QUESTÕES E SIMULADOS
-   ========================================================================== */
-.list-item-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
     padding: 1.5rem;
-    margin-bottom: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
     border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
-.list-item-header {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 0.5rem;
-    font-weight: 600;
-    color: var(--text-main);
-}
-
-.list-item-body {
-    padding: 1rem 0;
-}
-
-.options label {
-    display: block;
-    padding: 0.5rem 0;
-    cursor: pointer;
-}
-
-.options input[type="radio"] {
-    margin-right: 0.5rem;
-}
-
-.card-tag {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-    width: max-content;
-}
-
-.tag-enem { background-color: #fef3c7; color: #d97706; }
-.tag-unb { background-color: #e0f2fe; color: #0369a1; }
-.tag-fuvest { background-color: #fce7f3; color: #be185d; }
-
-.grid-cards {
+/* Grades Responsivas */
+.performance-layout, .grid-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 1.5rem;
     margin-top: 1.5rem;
 }
@@ -319,7 +267,21 @@ nav a:hover, nav strong, .active {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 1rem;
 }
+
+/* Tags de Vestibular legíveis (Contraste verificado) */
+.card-tag {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    width: max-content;
+}
+.tag-enem { background-color: #fef3c7; color: #92400e; }
+.tag-unb { background-color: #e0f2fe; color: #0369a1; }
+.tag-fuvest { background-color: #fce7f3; color: #9d174d; }
 
 .card-footer {
     display: flex;
@@ -327,45 +289,86 @@ nav a:hover, nav strong, .active {
     align-items: center;
     border-top: 1px solid var(--border-color);
     padding-top: 1rem;
-    font-size: 0.9rem;
-    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
 }
 
 /* ==========================================================================
-   6. MURAL DE NOTÍCIAS
+   6. CADERNO DE EXERCÍCIOS E MURAL
    ========================================================================== */
+.list-item-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+}
+
+.list-item-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.list-item-body {
+    padding-top: 1rem;
+}
+
+.options {
+    margin: 1rem 0;
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+.options label:hover {
+    background-color: var(--bg-color);
+}
+
+.options input[type="radio"] {
+    margin-right: 0.75rem;
+    width: 1.15rem;
+    height: 1.15rem;
+    accent-color: var(--primary-color);
+}
+
+/* Mural de Notícias (Design Minimalista e Elegante) */
 .news-wall {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    margin-top: 1.5rem;
+    gap: 1.25rem;
 }
 
 .news-card {
     background: var(--card-bg);
-    border-left: 4px solid var(--header-bg); /* O detalhe lateral puxa o verde do cabeçalho */
+    border-left: 4px solid var(--primary-color);
     padding: 1.5rem;
     border-radius: 0 8px 8px 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-top: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .date {
     font-size: 0.85rem;
     color: var(--text-muted);
-    font-weight: 500;
-    display: block;
+    font-weight: 600;
     margin-bottom: 0.5rem;
 }
 
-.section-title {
-    margin-bottom: 1.5rem;
-}
-
-.section-title h2 {
-    color: var(--text-main);
-    margin-bottom: 0.5rem;
-}
-
+/* Utilitários Globais */
 .text-primary {
     color: var(--primary-color);
+    font-weight: 600;
 }
