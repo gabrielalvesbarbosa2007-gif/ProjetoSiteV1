@@ -48,7 +48,6 @@ CREATE TABLE questao (
     enunciado TEXT NOT NULL,
     url_imagem VARCHAR(255) NULL,   
     resolucao_comentada TEXT,      
-    data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     
     CONSTRAINT fk_materia FOREIGN KEY (id_materia) REFERENCES materia(id_materia) ON DELETE CASCADE,
     CONSTRAINT fk_vestibular FOREIGN KEY (id_vestibular) REFERENCES vestibular(id_vestibular) ON DELETE CASCADE
@@ -129,3 +128,6 @@ CREATE TABLE noticia (
     data_expiracao TIMESTAMP NULL,    
     destaque BOOLEAN DEFAULT FALSE    
 );
+
+INSERT INTO usuario (nome, email, data_nascimento, senha, status_conta, perfil_acesso, data_cadastro) 
+VALUES ('Estudante Teste', 'teste@email.com', '2002-05-10', 'senha123', 'ativo', 'estudante', NOW());

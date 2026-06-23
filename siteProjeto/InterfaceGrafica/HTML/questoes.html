@@ -3,49 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel - Questões</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <meta name="description" content="Resolva questões de vestibulares e concursos na plataforma SOFOS. Treine seu conhecimento com feedback imediato.">
+    <title>Painel - Caderno de Questões | SOFOS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="relative min-h-screen flex flex-col bg-slate-50 text-slate-800 overflow-x-hidden">
 
-    <header class="main-header">
-        <nav class="nav-container">
-            <div class="logo">SOFOS</div>
-            <ul class="nav-links">
-                <li><a href="simulados.html">Simulados</a></li>
-                <li><a href="noticia.html">Notícias</a></li>
-                <li><a href="performance.html">Performance</a></li>
-                <li><strong>Questões</strong></li>
-                <li><a href="index.html">Sair</a></li>
+    <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat scale-105 blur-md brightness-[0.85]" 
+         style="background-image: url('../fotos/fotoFundo.jpg');">
+    </div>
+    <div class="absolute inset-0 z-0 bg-slate-900/10"></div>
+
+    <header class="w-full bg-[#047857] text-white shadow-sm relative z-10">
+        <nav class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center" aria-label="Navegação Principal">
+            <div class="text-2xl font-black tracking-wider">SOFOS</div>
+            <ul class="flex items-center gap-6 text-sm font-medium">
+                <li><a href="simulados.html" class="hover:text-emerald-200 transition-colors">Simulados</a></li>
+                <li><a href="noticia.html" class="hover:text-emerald-200 transition-colors">Notícias</a></li>
+                <li><a href="performance.html" class="hover:text-emerald-200 transition-colors">Performance</a></li>
+                <li><strong class="bg-emerald-800 px-3 py-1.5 rounded-md" aria-current="page">Questões</strong></li>
+                <li><a href="index.html" class="hover:text-emerald-200 transition-colors">Sair</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="container">
-        <section class="section-title">
-            <h2>Sessão: Questões</h2>
-            <p>Caderno de exercícios individuais disponíveis para resolução.</p>
-        </section>
+    <div class="relative z-10 flex flex-col flex-grow w-full max-w-7xl mx-auto bg-white shadow-2xl">
+        <main class="w-full px-8 py-12 flex-grow">
+            <section class="mb-8">
+                <h2 class="text-3xl font-bold text-slate-800 mb-2">Sessão: Questões</h2>
+                <p class="text-slate-600">Caderno de exercícios individuais disponíveis para resolução.</p>
+            </section>
 
-        <div class="list-item-card shadow">
-            <div class="list-item-header">
-                <span>Cebraspe - 2026 - UnB</span>
-                <span class="text-primary">Banco de Dados Relacional</span>
-            </div>
-            
-            <div class="list-item-body">
-                <p><strong>Questão #2481:</strong> Considere uma tabela de banco de dados relacional que necessita de uma chave primária composta para garantir a integridade dos dados registrados...</p>
-                
-                <div class="options">
-                    <label><input type="radio" name="q1" value="1"> Alternativa A: Permite valores nulos em colunas indexadas.</label>
-                    <label><input type="radio" name="q1" value="2"> Alternativa B: Restringe a duplicidade combinada dos campos estruturais.</label>
-                    <label><input type="radio" name="q1" value="3"> Alternativa C: Exige chaves estrangeiras equivalentes em cascata.</label>
+            <article class="w-full max-w-2xl bg-slate-50 border-2 border-emerald-600 rounded-xl shadow-md overflow-hidden" id="questao-container" aria-live="polite">
+                <div class="bg-emerald-100 px-6 py-4 border-b border-emerald-200 flex justify-between items-center text-sm font-bold text-emerald-800">
+                    <span id="questao-banca-ano" class="animate-pulse">Carregando dados da questão...</span>
+                    <span class="text-emerald-700" id="questao-materia"></span>
                 </div>
-                
-                <button type="button" class="btn" id="btn-responder" style="max-width: 180px; margin-top: 1rem;">Responder</button>
+                <div class="p-6 text-slate-400 text-sm text-center bg-white">Aguardando injeção...</div>
+            </article>
+        </main>
+
+        <footer class="w-full bg-white border-t border-slate-200 text-xs text-slate-400 py-6 mt-auto">
+            <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-2">
+                <p>&copy; 2026 SOFOS Plataforma de Estudos. Todos os direitos reservados.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-emerald-600 transition-colors">Termos de Uso</a>
+                    <a href="#" class="hover:text-emerald-600 transition-colors">Privacidade</a>
+                </div>
             </div>
-        </div>
-    </main>
+        </footer>
+    </div>
 
     <script src="../js/main.js"></script>
 </body>
