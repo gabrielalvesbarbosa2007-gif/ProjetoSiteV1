@@ -3,49 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notícias e Editais</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <meta name="description" content="Fique por dentro de editais, prazos e cronogramas oficiais do ENEM, UnB e vestibulares.">
+    <title>Mural de Notícias e Editais | SOFOS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header class="main-header">
-        <nav class="nav-container">
-            <div class="logo">SOFOS</div>
-            <ul class="nav-links">
-                <li><a href="simulados.html">Simulados</a></li>
-                <li><a href="noticia.html" class="active">Notícias</a></li>
-                <li><a href="performance.html">Performance</a></li>
-                <li><a href="questoes.html">Questões</a></li>
-                <li><a href="index.html">Sair</a></li>
+<body class="relative min-h-screen flex flex-col bg-slate-50 text-slate-800 overflow-x-hidden">
+
+    <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat scale-105 blur-md brightness-[0.85]" 
+         style="background-image: url('../fotos/fotoFundo.jpg');">
+    </div>
+    <div class="absolute inset-0 z-0 bg-slate-900/10"></div>
+
+    <header class="w-full bg-[#047857] text-white shadow-sm relative z-10">
+        <nav class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center" aria-label="Navegação Principal">
+            <div class="text-2xl font-black tracking-wider">SOFOS</div>
+            <ul class="flex items-center gap-6 text-sm font-medium">
+                <li><a href="simulados.html" class="hover:text-emerald-200 transition-colors">Simulados</a></li>
+                <li><strong class="bg-emerald-800 px-3 py-1.5 rounded-md" aria-current="page">Notícias</strong></li>
+                <li><a href="performance.html" class="hover:text-emerald-200 transition-colors">Performance</a></li>
+                <li><a href="questoes.html" class="hover:text-emerald-200 transition-colors">Questões</a></li>
+                <li><a href="index.html" class="hover:text-emerald-200 transition-colors">Sair</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="container">
-        <section class="section-title">
-            <h2>Mural de Notícias</h2>
-            <p>Acompanhe avisos oficiais, prazos de inscrição e cronogramas importantes.</p>
-        </section>
+    <div class="relative z-10 flex flex-col flex-grow w-full max-w-7xl mx-auto bg-white shadow-2xl">
+        <main class="w-full px-8 py-12 flex-grow">
+            <section class="mb-8">
+                <h2 class="text-3xl font-bold text-slate-800 mb-2">Mural de Notícias</h2>
+                <p class="text-slate-600">Acompanhe avisos oficiais, prazos de inscrição e cronogramas importantes.</p>
+            </section>
 
-        <div class="news-wall">
-            <article class="news-card">
-                <span class="date">📅 8 de Junho, 2026</span>
-                <h3>Cronograma Oficial do ENEM: Publicação do Edital</h3>
-                <p>Confira o calendário completo para não perder nenhum prazo importante do exame deste ano. Veja também dicas de como se organizar na reta final.</p>
-            </article>
+            <div class="w-full py-6 text-slate-500 text-sm border-t border-slate-100" id="news-wall" aria-live="polite">
+                <p class="animate-pulse">Buscando updates no painel institucional...</p>
+            </div>
+        </main>
 
-            <article class="news-card">
-                <span class="date">📅 5 de Junho, 2026</span>
-                <h3>UnB divulga homologação dos locais de prova</h3>
-                <p>A consulta individual já está liberada no site oficial da banca organizadora do certame.</p>
-            </article>
+        <footer class="w-full bg-white border-t border-slate-200 text-xs text-slate-400 py-6 mt-auto">
+            <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-2">
+                <p>&copy; 2026 SOFOS Plataforma de Estudos. Todos os direitos reservados.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-emerald-600 transition-colors">Termos de Uso</a>
+                    <a href="#" class="hover:text-emerald-600 transition-colors">Privacidade</a>
+                </div>
+            </div>
+        </footer>
+    </div>
 
-            <article class="news-card">
-                <span class="date">📅 1 de Junho, 2026</span>
-                <h3>Como montar simulados eficientes em casa</h3>
-                <p>Especialistas da área explicam a real importância de simular perfeitamente as condições reais do dia do exame.</p>
-            </article>
-        </div>
-    </main>
     <script src="../js/main.js"></script>
 </body>
 </html>

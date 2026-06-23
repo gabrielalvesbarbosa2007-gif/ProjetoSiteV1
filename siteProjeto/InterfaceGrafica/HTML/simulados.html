@@ -3,61 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulados | Plataforma de Estudos</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <meta name="description" content="Prepare-se para o ENEM, UnB e FUVEST com simulados cronometrados integrados na plataforma SOFOS.">
+    <title>Simulados Disponíveis | SOFOS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header class="main-header">
-        <nav class="nav-container">
-            <div class="logo">SOFOS</div>
-            <ul class="nav-links">
-                <li><a href="simulados.html" class="active">Simulados</a></li>
-                <li><a href="noticia.html">Notícias</a></li>
-                <li><a href="performance.html">Performance</a></li>
-                <li><a href="questoes.html">Questões</a></li>
-                <li><a href="index.html">Sair</a></li>
+<body class="relative min-h-screen flex flex-col bg-slate-50 text-slate-800 overflow-x-hidden">
+
+    <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat scale-105 blur-md brightness-[0.85]" 
+         style="background-image: url('../fotos/fotoFundo.jpg');">
+    </div>
+    <div class="absolute inset-0 z-0 bg-slate-900/10"></div>
+
+    <header class="w-full bg-[#047857] text-white shadow-sm relative z-10">
+        <nav class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center" aria-label="Navegação Principal">
+            <div class="text-2xl font-black tracking-wider">SOFOS</div>
+            <ul class="flex items-center gap-6 text-sm font-medium">
+                <li><strong class="bg-emerald-800 px-3 py-1.5 rounded-md" aria-current="page">Simulados</strong></li>
+                <li><a href="noticia.html" class="hover:text-emerald-200 transition-colors">Notícias</a></li>
+                <li><a href="performance.html" class="hover:text-emerald-200 transition-colors">Performance</a></li>
+                <li><a href="questoes.html" class="hover:text-emerald-200 transition-colors">Questões</a></li>
+                <li><a href="index.html" class="hover:text-emerald-200 transition-colors">Sair</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="container">
-        <section class="section-title">
-            <h2>Simulados Disponíveis</h2>
-            <p>Treine seus conhecimentos com exames cronometrados integrados.</p>
-        </section>
+    <div class="relative z-10 flex flex-col flex-grow w-full max-w-7xl mx-auto bg-white shadow-2xl">
+        <main class="w-full px-8 py-12 flex-grow flex flex-col gap-16">
+            <section class="text-center">
+                <h2 class="text-3xl font-bold text-slate-800 mb-2">Simulados Disponíveis</h2>
+                <p class="text-slate-600">Escolha uma categoria e treine seus conhecimentos.</p>
+            </section>
 
-        <div class="grid-cards">
-            <div class="card shadow">
-                <div class="card-tag tag-enem">ENEM</div>
-                <h3>INEP - 2025 - COMPLETO</h3>
-                <p>90 questões abrangendo Ciências da Natureza e Matemática.</p>
-                <div class="card-footer">
-                    <span>⏱️ <strong class="text-primary">4h 30m</strong> | Múltipla Escolha</span>
-                    <a href="#" class="btn" style="width: auto; padding: 0.5rem 1rem;">Iniciar</a>
+            <section class="carrossel-container relative w-full max-w-2xl mx-auto">
+                <h3 class="text-xl font-bold text-slate-700 mb-4 px-2 border-l-4 border-emerald-600">Plataforma ENEM</h3>
+                <div class="relative flex items-center justify-center">
+                    <button class="btn-anterior absolute -left-6 z-10 p-3 bg-white text-slate-800 rounded-full shadow-lg border border-slate-200 hover:scale-105 transition-all cursor-pointer focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+                    </button>
+                    <div class="w-full overflow-hidden rounded-xl border-2 border-emerald-600 shadow-md bg-slate-50">
+                        <div class="trilho flex transition-transform duration-500 ease-in-out">
+                            <div class="w-full flex-shrink-0 p-6 flex flex-col justify-between bg-white">
+                                <span class="text-xs font-semibold text-slate-400 mb-2">ENEM - Ciências Humanas/Linguagens</span>
+                                <h4 class="text-lg font-bold text-slate-800 mb-2">Simulado Completo #1</h4>
+                                <p class="text-slate-600 text-sm mb-6">90 questões simulando o primeiro dia do exame.</p>
+                                <button class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors cursor-pointer">Iniciar Exame</button>
+                            </div>
+                            <div class="w-full flex-shrink-0 p-6 flex flex-col justify-between bg-white">
+                                <span class="text-xs font-semibold text-slate-400 mb-2">ENEM - Matemática</span>
+                                <h4 class="text-lg font-bold text-slate-800 mb-2">Simulado de Matemática e Lógica</h4>
+                                <p class="text-slate-600 text-sm mb-6">45 questões baseadas no Segundo Dia do ENEM.</p>
+                                <button class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors cursor-pointer">Iniciar Exame</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-proximo absolute -right-6 z-10 p-3 bg-white text-slate-800 rounded-full shadow-lg border border-slate-200 hover:scale-105 transition-all cursor-pointer focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                    </button>
+                </div>
+            </section>
+
+            <section class="carrossel-container relative w-full max-w-2xl mx-auto">
+                <h3 class="text-xl font-bold text-slate-700 mb-4 px-2 border-l-4 border-emerald-600">Plataforma FUVEST</h3>
+                <div class="relative flex items-center justify-center">
+                    <button class="btn-anterior absolute -left-6 z-10 p-3 bg-white text-slate-800 rounded-full shadow-lg border border-slate-200 hover:scale-105 transition-all cursor-pointer focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+                    </button>
+                    <div class="w-full overflow-hidden rounded-xl border-2 border-emerald-600 shadow-md bg-slate-50">
+                        <div class="trilho flex transition-transform duration-500 ease-in-out">
+                            <div class="w-full flex-shrink-0 p-6 flex flex-col justify-between bg-white">
+                                <span class="text-xs font-semibold text-slate-400 mb-2">FUVEST</span>
+                                <h4 class="text-lg font-bold text-slate-800 mb-2">Primeiro dia</h4>
+                                <p class="text-slate-600 text-sm mb-6">80 questões de múltipla escolha.</p>
+                                <button class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors cursor-pointer">Iniciar Exame</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-proximo absolute -right-6 z-10 p-3 bg-white text-slate-800 rounded-full shadow-lg border border-slate-200 hover:scale-105 transition-all cursor-pointer focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                    </button>
+                </div>
+            </section>
+
+            <section class="carrossel-container relative w-full max-w-2xl mx-auto">
+                <h3 class="text-xl font-bold text-slate-700 mb-4 px-2 border-l-4 border-emerald-600">Plataforma VestUnb</h3>
+                <div class="relative flex items-center justify-center">
+                    <button class="btn-anterior absolute -left-6 z-10 p-3 bg-white text-slate-800 rounded-full shadow-lg border border-slate-200 hover:scale-105 transition-all cursor-pointer focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+                    </button>
+                    <div class="w-full overflow-hidden rounded-xl border-2 border-emerald-600 shadow-md bg-slate-50">
+                        <div class="trilho flex transition-transform duration-500 ease-in-out">
+                            <div class="w-full flex-shrink-0 p-6 flex flex-col justify-between bg-white">
+                                <span class="text-xs font-semibold text-slate-400 mb-2">Cebraspe - UnB</span>
+                                <h4 class="text-lg font-bold text-slate-800 mb-2">Vestibular Geral</h4>
+                                <p class="text-slate-600 text-sm mb-6">150 itens de Certo/Errado</p>
+                                <button class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors cursor-pointer">Iniciar Exame</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-proximo absolute -right-6 z-10 p-3 bg-white text-slate-800 rounded-full shadow-lg border border-slate-200 hover:scale-105 transition-all cursor-pointer focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="w-full bg-white border-t border-slate-200 text-xs text-slate-400 py-6 mt-auto">
+            <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-2">
+                <p>&copy; 2026 SOFOS Plataforma de Estudos. Todos os direitos reservados.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-emerald-600 transition-colors">Termos de Uso</a>
+                    <a href="#" class="hover:text-emerald-600 transition-colors">Privacidade</a>
                 </div>
             </div>
+        </footer>
+    </div>
 
-            <div class="card shadow">
-                <div class="card-tag tag-unb">UnB / PAS</div>
-                <h3>Cebraspe - 2026 - Subprograma</h3>
-                <p>Questões de formato Certo/Errado com penalidade de desempate.</p>
-                <div class="card-footer">
-                    <span>⏱️ <strong class="text-primary">120 itens</strong> | Certo/Errado</span>
-                    <a href="#" class="btn" style="width: auto; padding: 0.5rem 1rem;">Iniciar</a>
-                </div>
-            </div>
-
-            <div class="card shadow">
-                <div class="card-tag tag-fuvest">FUVEST</div>
-                <h3>FUVEST - 2026 - Primeira Fase</h3>
-                <p>Questões objetivas integradas de conhecimentos gerais unificados.</p>
-                <div class="card-footer">
-                    <span>⏱️ <strong class="text-primary">90 questões</strong> | Objetiva</span>
-                    <a href="#" class="btn" style="width: auto; padding: 0.5rem 1rem;">Iniciar</a>
-                </div>
-            </div>
-        </div>
-    </main>
     <script src="../js/main.js"></script>
 </body>
 </html>

@@ -3,63 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel - Performance</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <meta name="description" content="Acompanhe seus gráficos de acertos, evolução e estatísticas de estudo na plataforma SOFOS.">
+    <title>Painel de Performance | SOFOS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="relative min-h-screen flex flex-col bg-slate-50 text-slate-800 overflow-x-hidden">
 
-    <header class="main-header">
-        <nav class="nav-container">
-            <div class="logo">SOFOS</div>
-            <ul class="nav-links">
-                 <li><a href="simulados.html">Simulados</a></li>
-                <li><a href="noticia.html">Notícias</a></li>
-               <li><strong>Performance</strong></li>
-                <li><a href="questoes.html">Questões</a></li>
-                <li><a href="index.html">Sair</a></li>
+    <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat scale-105 blur-md brightness-[0.85]" 
+         style="background-image: url('../fotos/fotoFundo.jpg');">
+    </div>
+    <div class="absolute inset-0 z-0 bg-slate-900/10"></div>
+
+    <header class="w-full bg-[#047857] text-white shadow-sm relative z-10">
+        <nav class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center" aria-label="Navegação Principal">
+            <div class="text-2xl font-black tracking-wider">SOFOS</div>
+            <ul class="flex items-center gap-6 text-sm font-medium">
+                <li><a href="simulados.html" class="hover:text-emerald-200 transition-colors">Simulados</a></li>
+                <li><a href="noticia.html" class="hover:text-emerald-200 transition-colors">Notícias</a></li>
+                <li><strong class="bg-emerald-800 px-3 py-1.5 rounded-md" aria-current="page">Performance</strong></li>
+                <li><a href="questoes.html" class="hover:text-emerald-200 transition-colors">Questões</a></li>
+                <li><a href="index.html" class="hover:text-emerald-200 transition-colors">Sair</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="container">
-        <section class="section-title">
-            <h2>Sessão: Performance</h2>
-            <p>Estatísticas e análise detalhada do seu desempenho nos estudos.</p>
-        </section>
+    <div class="relative z-10 flex flex-col flex-grow w-full max-w-7xl mx-auto bg-white shadow-2xl">
+        <main class="w-full px-8 py-12 flex-grow">
+            <section class="mb-8">
+                <h2 class="text-3xl font-bold text-slate-800 mb-2">Sessão: Performance</h2>
+                <p class="text-slate-600">Estatísticas e análise detalhada do seu desempenho nos estudos.</p>
+            </section>
 
-        <div class="performance-layout">
-            
-            <div class="panel-card chart-container">
-                <h3>Conteúdos Estudados</h3>
-                <div class="pie-conteudos"></div>
-                <div style="width: 100%; font-size: 0.9rem; margin-top: 1rem;">
-                    <p>🔵 Matemática: 55%</p>
-                    <p>🟣 História: 25%</p>
-                    <p>🟠 Português: 15%</p>
-                    <p>🟡 Física: 5%</p>
+            <div class="bg-slate-50 p-6 rounded-xl border-2 border-emerald-600 shadow-sm max-w-xl mb-8">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm font-semibold text-slate-700">Sua Taxa de Acerto Geral</span>
+                    <span class="text-sm font-bold text-emerald-700" id="porcentagem-texto">0%</span>
+                </div>
+                <div class="w-full bg-slate-200 rounded-full h-4 overflow-hidden" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progresso-acessivel">
+                    <div class="bg-emerald-600 h-full rounded-full transition-all duration-500 ease-out" style="width: 0%" id="barra-preenchimento"></div>
                 </div>
             </div>
 
-            <div class="panel-card chart-container">
-                <h3>Taxa de Acerto Geral</h3>
-                <div class="pie-acertos"></div>
-                <div style="width: 100%; font-size: 0.9rem; margin-top: 1rem;">
-                    <p>🟢 Acertos: 68,8%</p>
-                    <p>🟣 Erros: 31,3%</p>
+            <section>
+                <h3 class="text-xl font-bold text-slate-800 mb-4">Métricas Gerais</h3>
+                <ul class="grid grid-cols-1 sm:grid-cols-3 gap-4 list-none p-0">
+                    <li class="bg-slate-50 p-6 rounded-xl border-2 border-emerald-600 shadow-sm">
+                        <strong class="block text-slate-500 text-xs uppercase tracking-wider mb-1">Tempo de Estudo</strong>
+                        <span class="text-2xl font-bold text-slate-800" id="metric-tempo">0</span> <span class="text-sm text-slate-500">horas</span>
+                    </li>
+                    <li class="bg-slate-50 p-6 rounded-xl border-2 border-emerald-600 shadow-sm">
+                        <strong class="block text-slate-500 text-xs uppercase tracking-wider mb-1">Questões Respondidas</strong>
+                        <span class="text-2xl font-bold text-slate-800" id="metric-respondidas">0</span>
+                    </li>
+                    <li class="bg-slate-50 p-6 rounded-xl border-2 border-emerald-600 border-l-4 border-l-amber-500 shadow-sm">
+                        <strong class="block text-amber-600 text-xs uppercase tracking-wider mb-1">Foco de Atenção</strong>
+                        <span class="text-sm font-semibold text-slate-700" id="metric-ajuda">Analisando histórico...</span>
+                    </li>
+                </ul>
+            </section>
+        </main>
+
+        <footer class="w-full bg-white border-t border-slate-200 text-xs text-slate-400 py-6 mt-auto">
+            <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-2">
+                <p>&copy; 2026 SOFOS Plataforma de Estudos. Todos os direitos reservados.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-emerald-600 transition-colors">Termos de Uso</a>
+                    <a href="#" class="hover:text-emerald-600 transition-colors">Privacidade</a>
                 </div>
             </div>
+        </footer>
+    </div>
 
-        </div>
-
-        <div style="margin-top: 2rem;">
-            <h3>Estatísticas Gerais</h3>
-            <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; list-style: none; margin-top: 1rem; padding: 0;">
-                <li class="panel-card"><strong>Tempo de Estudo:</strong> 45 horas</li>
-                <li class="panel-card"><strong>Questões Respondidas:</strong> 1.240</li>
-                <li class="panel-card"><strong>Pontos a Melhorar:</strong> Focar em Física e revisões de Erros</li>
-            </ul>
-        </div>
-    </main>
-<script src="../js/main.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>
